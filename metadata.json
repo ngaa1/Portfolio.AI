@@ -1,0 +1,5 @@
+{
+  "name": "Portfolio.AI",
+  "description": "A next-generation personal resume website featuring an interactive AI agent that answers questions about your experience, skills, and background using Gemini 2.5 Flash.",
+  "requestFramePermissions": []
+}
