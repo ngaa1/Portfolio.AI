@@ -1,14 +1,22 @@
+
 import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from '../constants';
 
 let chatSession: Chat | null = null;
+let currentApiKey: string | null = null;
+
+export const setApiKey = (key: string) => {
+  currentApiKey = key;
+  // Reset session when key changes
+  chatSession = null;
+};
 
 const getAiClient = () => {
-  if (!process.env.API_KEY) {
-    console.warn("Gemini API Key is missing. Chat features will not work.");
+  if (!currentApiKey) {
+    // Graceful fallback if no key is present
     return null;
   }
-  return new GoogleGenAI({ apiKey: process.env.API_KEY });
+  return new GoogleGenAI({ apiKey: currentApiKey });
 };
 
 export const initializeChat = () => {
@@ -31,7 +39,7 @@ export const sendMessageToGemini = async function* (message: string) {
   }
 
   if (!chatSession) {
-    yield "I'm sorry, I cannot connect to the brain right now. Please check the API configuration.";
+    yield "请先配置 API Key 以启用 AI 助手功能。";
     return;
   }
 
@@ -46,6 +54,6 @@ export const sendMessageToGemini = async function* (message: string) {
     }
   } catch (error) {
     console.error("Gemini Error:", error);
-    yield "Sorry, I encountered an error processing your request.";
+    yield "抱歉，连接服务时出现错误，请检查网络或 API Key 设置。";
   }
 };

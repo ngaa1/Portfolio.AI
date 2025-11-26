@@ -12,16 +12,19 @@
           extend: {
             colors: {
               brand: {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8', // Engineering Blue
-                800: '#1e40af',
-                900: '#1e3a8a',
+                50: '#f0f4f8',
+                100: '#d9e2ec',
+                200: '#bcccdc',
+                300: '#9fb3c8',
+                400: '#829ab1',
+                500: '#627d98',
+                600: '#486581',
+                700: '#334e68', // Deep Engineering Blue
+                800: '#243b53',
+                900: '#102a43',
               },
               slate: {
-                850: '#152033', // Custom dark for footer
+                850: '#152033',
               }
             },
             fontFamily: {
@@ -29,7 +32,7 @@
               mono: ['JetBrains Mono', 'Menlo', 'monospace'],
             },
             backgroundImage: {
-              'grid-pattern': "linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)",
+              'grid-pattern': "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
             }
           }
         }
@@ -48,17 +51,18 @@
   <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.263.1",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.1",
+    "recharts": "https://esm.sh/recharts@2.7.2",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
   }
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-700 antialiased selection:bg-brand-100 selection:text-brand-900">
+  <body class="bg-white text-slate-700 antialiased selection:bg-brand-100 selection:text-brand-900">
     <div id="root"></div>
   </body>
 </html>
